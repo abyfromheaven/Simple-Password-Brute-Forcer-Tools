@@ -1,94 +1,112 @@
-Simple Password Brute-Forcer Tools (ZIP Edition & Beyond)
-Ini adalah koleksi tools sederhana berbasis Python yang dapat digunakan untuk brute force password pada berbagai jenis file yang dilindungi, dimulai dari file ZIP. Tools ini dirancang untuk belajar dasar serangan brute force dan pemrosesan file di Python, serta bisa dikembangkan untuk jenis file lainnya (seperti RAR, PDF, dll.).
 
-✨ Fitur Utama
-🔓 Brute-force password file ZIP menggunakan wordlist.
+# 🔓 UnlockKit - Python Brute Force Toolkit for ZIP and Beyond
 
-📁 Mendukung wordlist eksternal (.txt) dengan encoding fleksibel.
+**UnlockKit** adalah toolkit berbasis Python yang ringan dan edukatif, dirancang untuk membuka proteksi file yang dikunci dengan password menggunakan metode brute force. Versi awal mendukung cracking file ZIP dan akan dikembangkan untuk mendukung format lain seperti RAR, PDF, dan lainnya.
 
-⚠️ Menangani error umum: file tidak ditemukan, format rusak, dll.
+---
 
-🔧 Mudah dikembangkan untuk jenis file atau serangan lainnya.
+## 🧩 Fitur Utama
 
-📁 Saat Ini: zipcracker.py - Brute Forcer ZIP
-🔍 Deskripsi
-Script zipcracker.py digunakan untuk mencoba membuka file ZIP yang diproteksi dengan password menggunakan metode brute force dari daftar kata sandi (wordlist).
+- 🚀 Brute force file ZIP menggunakan wordlist
+- 📖 Input interaktif untuk file ZIP dan wordlist
+- 🧱 Penanganan error yang lengkap dan aman
+- 🔧 Mudah dimodifikasi dan dikembangkan untuk jenis file lain
 
-🧠 Cara Kerja Singkat
-Meminta path file ZIP dan file wordlist dari user.
+---
 
-Membuka file ZIP.
+## 📁 Struktur Direktori (Contoh)
 
-Membaca setiap baris dari wordlist.
+```
+UnlockKit/
+├── tools/
+│   └── zipcracker.py
+├── wordlists/
+│   └── example.txt
+└── README.md
+```
 
-Mencoba mengekstrak file ZIP dengan password tersebut.
+---
 
-Jika berhasil → Password ditampilkan.
+## 🧪 Contoh Penggunaan
 
-Jika gagal → Mencoba password berikutnya sampai akhir wordlist.
+### 1. Siapkan:
+- File ZIP yang diproteksi, misal `protected.zip`
+- File wordlist, misal `wordlists/example.txt`
 
-🧪 Contoh Penggunaan
-🔧 Persiapan:
-Buat file ZIP yang dipassword: protected.zip
+### 2. Jalankan:
+```bash
+python3 tools/zipcracker.py
+```
 
-Siapkan file wordlist: rockyou.txt atau buatan sendiri
-
-🚀 Menjalankan:
-bash
-Copy
-Edit
-python3 zipcracker.py
-📥 Input yang Diminta:
-text
-Copy
-Edit
+### 3. Input di terminal:
+```
 Masukkan path ke file ZIP: protected.zip
-Masukkan path ke file wordlist: wordlist.txt
-📜 Struktur Kode dan Penjelasan
-Fungsi Utama: brute_force_zip(zip_file_path, wordlist_file_path)
-Menjalankan proses brute force terhadap file ZIP.
+Masukkan path ke file wordlist: wordlists/example.txt
+```
 
-python
-Copy
-Edit
-with zipfile.ZipFile(zip_file_path) as zf:
-    with open(wordlist_file_path, 'r') as wordlist:
-        for line in wordlist:
-            password = line.strip()
-            zf.extractall(pwd=password.encode())
-Penanganan error:
+Jika password ditemukan, akan muncul:
+```
+[+] Kata sandi ditemukan: [password]
+```
 
-FileNotFoundError → jika file tidak ada
+Jika tidak ditemukan:
+```
+[-] Kata sandi tidak ditemukan dalam wordlist.
+```
 
-zipfile.BadZipFile → jika file rusak/bukan ZIP
+---
 
-RuntimeError → jika password salah
+## 🛠️ Penjelasan Script: `zipcracker.py`
 
-Exception umum lainnya → untuk error tidak terduga
+File utama `zipcracker.py` terdiri dari dua fungsi:
 
-Fungsi main()
-Membaca input dari user dan memanggil fungsi brute force.
+### 🔐 `brute_force_zip(zip_file_path, wordlist_file_path)`
+Melakukan brute force terhadap file ZIP dengan mencoba semua kata dalam wordlist.
 
-python
-Copy
-Edit
-zip_file_path = input('Masukkan path ke file ZIP: ')
-wordlist_file_path = input('Masukkan path ke file wordlist: ')
-📌 Catatan Penting
-❗ Tool ini hanya untuk pembelajaran atau pengujian keamanan pribadi.
+### 🧭 `main()`
+Menjalankan interaksi CLI dan memulai proses brute force.
 
-🚫 Jangan digunakan untuk akses tanpa izin (unauthorized access).
+---
 
-⚡ Disarankan menggunakan wordlist ringan untuk testing awal.
+## 📌 Catatan
 
-🔄 Rencana Pengembangan Selanjutnya
-Tools ini dapat dikembangkan lebih lanjut menjadi modular:
+- ❗ **Hanya digunakan untuk pembelajaran atau pengujian keamanan milik pribadi.**
+- 🚫 Jangan gunakan tool ini untuk aktivitas ilegal.
+- 🧠 Sangat cocok untuk pemula Python & Cyber Security.
 
-📂 Tambahkan dukungan untuk file RAR (rarfile module)
+---
 
-📄 Tambahkan dukungan untuk file PDF (PyPDF2 atau pikepdf)
+## 📈 Roadmap Pengembangan
 
-🔑 Integrasi GUI sederhana (misalnya Tkinter atau CustomTkinter)
+- [ ] Tambahkan dukungan file RAR (`rarfile`)
+- [ ] Tambahkan dukungan file PDF (`pikepdf`)
+- [ ] GUI mode dengan Tkinter atau CustomTkinter
+- [ ] Web UI dengan Flask
+- [ ] Mode multi-threaded untuk kecepatan
 
-🌐 Web interface dengan Flask untuk demo online
+---
 
+## 📦 Requirements
+
+- Python 3.x
+- Tidak memerlukan library eksternal (untuk `zipcracker.py`)
+
+---
+
+## 👨‍💻 Kontribusi
+
+Pull request, issue, dan saran sangat diterima!  
+Tool ini dirancang sebagai tempat belajar dan eksplorasi dunia *brute force* dan *file cracking* yang aman.
+
+---
+
+## 📝 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## 🙏 Kredit
+
+Dibuat oleh: **Muhammad Abiyan Hafidz**  
+Sebagai bagian dari eksplorasi dunia **Cyber Security & Python Tools**.
