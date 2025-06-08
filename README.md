@@ -1,5 +1,5 @@
 
-# 🔓 UnlockKit - Python Brute Force Toolkit for ZIP and Beyond
+# 🔓 UnlockKit - Python Brute Force Toolkit
 
 **UnlockKit** adalah toolkit berbasis Python yang ringan dan edukatif, dirancang untuk membuka proteksi file yang dikunci dengan password menggunakan metode brute force. Versi awal mendukung cracking file ZIP dan akan dikembangkan untuk mendukung format lain seperti RAR, PDF, dan lainnya.
 
@@ -14,19 +14,6 @@
 
 ---
 
-## 📁 Struktur Direktori (Contoh)
-
-```
-UnlockKit/
-├── tools/
-│   └── zipcracker.py
-├── wordlists/
-│   └── example.txt
-└── README.md
-```
-
----
-
 ## 🧪 Contoh Penggunaan
 
 ### 1. Siapkan:
@@ -35,7 +22,7 @@ UnlockKit/
 
 ### 2. Jalankan:
 ```bash
-python3 tools/zipcracker.py
+python3 main.py
 ```
 
 ### 3. Input di terminal:
@@ -56,9 +43,9 @@ Jika tidak ditemukan:
 
 ---
 
-## 🛠️ Penjelasan Script: `zipcracker.py`
+## 🛠️ Penjelasan Script: `main.py`
 
-File utama `zipcracker.py` terdiri dari dua fungsi:
+File utama `main.py` terdiri dari dua fungsi:
 
 ### 🔐 `brute_force_zip(zip_file_path, wordlist_file_path)`
 Melakukan brute force terhadap file ZIP dengan mencoba semua kata dalam wordlist.
